@@ -9,14 +9,18 @@ public class PECMain {
 	public static void BDOlogin(Scanner sc) {
 		System.out.println("BDO LOGING In");
 		
-		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+"Enter the Username"+ConsoleColors.RESET);
+		System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+"Enter the Username"+ConsoleColors.RESET);
 		String username=sc.next();
 		
-		System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+"Enter the password"+ConsoleColors.RESET);
+		System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+"Enter the password"+ConsoleColors.RESET);
 		String password=sc.next();
 		
 		if(username.equals("admin") && password.equals("admin")) {
-			System.out.println(ConsoleColors.GREEN_BACKGROUND_BRIGHT+"LOg in SuccesFull"+ConsoleColors.RESET);
+			
+			System.out.println(ConsoleColors.GREEN_BACKGROUND_BRIGHT+"WELCOME ! Login is SuccesFull"+ConsoleColors.RESET);
+			
+			Project_Details_UI.functionalities_of_BDO(sc);
+			
 		}else {
 			System.out.println(ConsoleColors.RED_BACKGROUND_BRIGHT+"Invalid Password OR User !"+ConsoleColors.RESET);
 		}
