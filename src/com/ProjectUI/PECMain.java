@@ -6,7 +6,7 @@ import com.projectCustom.ConsoleColors;
 
 public class PECMain {
 	
-	public static void BDOlogin(Scanner sc) {
+	public static void BDOlogin(Scanner sc) 
 		System.out.println("BDO LOGING In");
 		
 		System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+"Enter the Username"+ConsoleColors.RESET);
