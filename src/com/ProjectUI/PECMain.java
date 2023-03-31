@@ -2,6 +2,10 @@ package com.ProjectUI;
 
 import java.util.Scanner;
 
+import com.ProjectDao.GMP_DAO;
+import com.ProjectDao.GMP_DAO_Interface;
+import com.ProjectException.NoRecordFoundException;
+import com.ProjectException.SomethingWentWrongException;
 import com.projectCustom.ConsoleColors;
 
 public class PECMain {
@@ -30,7 +34,26 @@ public class PECMain {
 	}
 	
 	
-    public static void GPMlogin(Scanner sc) {
+    public static void GPMlogin(Scanner sc)  {
+    	
+    	System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+"Enter the Username"+ConsoleColors.RESET);
+		String username=sc.next();
+		
+		System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+"Enter the password"+ConsoleColors.RESET);
+		String password=sc.next();
+    	
+		
+		GMP_DAO_Interface Gd=new GMP_DAO();
+		
+		try {
+			try {
+				Gd.GMP_login(username, password);
+			} catch (NoRecordFoundException e) {
+				System.out.println(e);
+			}
+		} catch (SomethingWentWrongException e) {
+			System.out.println(e);
+		}
 		
 	}
 	

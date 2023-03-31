@@ -42,7 +42,7 @@ public class Project_Details_UI {
 			case 5: BDO_Functionalites_UI.allocate_project_to_GMPS(sc);
 	                break;
 	         
-			case 6: BDO_Functionalites_UI.see_details_of_workers(sc);
+			case 6: BDO_Functionalites_UI.see_details_of_workers();
 	                break;
 	         
 			case 7: BDO_Functionalites_UI.logout();
