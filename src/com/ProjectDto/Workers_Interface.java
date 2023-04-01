@@ -51,22 +51,7 @@ public interface Workers_Interface {
 	public void setState(String state) ;
 
 
-	public int getIs_occupied();
-
-
-	public void setIs_occupied(int is_occupied);
-
-
-	public int getIs_delete();
-
-
-	public void setIs_delete(int is_delete);
-
-
-	public int getProject_Id() ;
-
-
-	public void setProject_Id(int project_Id);
+	
 	
 	
 	

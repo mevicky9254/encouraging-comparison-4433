@@ -38,8 +38,7 @@ public class BDO_Functionalites_UI {
 		System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+"Enter Daily Wages for the Project"+ConsoleColors.RESET);
 		double per_day_wages=sc.nextDouble();
 		
-		 System.out.println(project_Name);
-		 System.out.println(start_Date);
+		
 		
 		Project_Details_Interface PD=new Project_Details_DTO (project_Id,project_Name,start_Date,End_Date,no_of_workers,per_day_wages);
 		
@@ -118,11 +117,10 @@ public class BDO_Functionalites_UI {
  		 System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+"Enter the  State name"+ConsoleColors.RESET);
  		 String state =sc.next(); 
  		 
- 		 System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+"Enter the  project id"+ConsoleColors.RESET);
- 		 int project_id =sc.nextInt(); 
+ 		
  		
  		 
- 		 GMP_Details_Interface gd=new GMP_Details_DTO(GMP_Id, adharCard,name ,dob,gender,panchayat_Name,district,state,project_id);
+ 		 GMP_Details_Interface gd=new GMP_Details_DTO(GMP_Id, adharCard,name ,dob,gender,panchayat_Name,district,state);
  		 
  		 Project_Details_DAO_Interface pdd=new Project_Details_DAO();
  		 
@@ -164,10 +162,10 @@ public class BDO_Functionalites_UI {
      public static void allocate_project_to_GMPS(Scanner sc) {
     	 
     	 System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+"Enter the  Gram Panchayat Member's ID"+ConsoleColors.RESET);
- 		 String GMP_Id=sc.next(); 
+ 		 int GMP_Id=sc.nextInt(); 
  		 
  		System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+"Enter the  Project ID"+ConsoleColors.RESET);
-		String project_Id=sc.next();
+		int project_Id=sc.nextInt();
        
 		
 		 Project_Details_DAO_Interface pdd=new Project_Details_DAO();
@@ -185,7 +183,14 @@ public class BDO_Functionalites_UI {
      
      
      
-     
+     public static void show_GMPS_with_Allocated_Projects() {
+    	 Project_Details_DAO_Interface pdd=new Project_Details_DAO(); 
+    	 try {
+			pdd.show_GMPS_with_Allocated_Projects();
+		} catch (SomethingWentWrongException | NoRecordFoundException e) {
+			System.out.println(ConsoleColors.RED_BOLD_BRIGHT+ e+ ConsoleColors.RESET);
+		}
+     }
      
      
      

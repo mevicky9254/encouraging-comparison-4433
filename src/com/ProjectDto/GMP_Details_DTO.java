@@ -27,14 +27,14 @@ public class GMP_Details_DTO implements GMP_Details_Interface  {
 	private  String panchayat_Name;
 	private  String district;
 	private  String state;
-	private int project_id;
+	
 	
 	
 	
 
 
 	public GMP_Details_DTO(String gMP_Id, String adahr_Number, String name, LocalDate dob, String gender,
-			String panchayat_Name, String district, String state ,int project_id) {
+			String panchayat_Name, String district, String state) {
 		super();
 		GMP_Id = gMP_Id;
 		this.adahr_Number = adahr_Number;
@@ -44,7 +44,7 @@ public class GMP_Details_DTO implements GMP_Details_Interface  {
 		this.panchayat_Name = panchayat_Name;
 		this.district = district;
 		this.state = state;
-		this.project_id=project_id;
+		
 		
 	}
 
@@ -129,15 +129,7 @@ public class GMP_Details_DTO implements GMP_Details_Interface  {
 		this.state = state;
 	}
 
-@Override
-public int getProject_id() {
-	return project_id;
-}
 
-@Override
-public void setProject_id(int project_id) {
-	this.project_id = project_id;
-}
 	
 	
 	

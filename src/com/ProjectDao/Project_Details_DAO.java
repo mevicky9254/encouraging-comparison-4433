@@ -16,7 +16,13 @@ import com.ProjectException.NoRecordFoundException;
 import com.ProjectException.SomethingWentWrongException;
 import com.projectCustom.ConsoleColors;
 
+
+
+
 public class Project_Details_DAO implements Project_Details_DAO_Interface{
+	
+	
+	
 
 	@Override
 	public void createProject(Project_Details_Interface Pd) throws SomethingWentWrongException {
@@ -102,11 +108,10 @@ public class Project_Details_DAO implements Project_Details_DAO_Interface{
 		
 		
 		
-		
-		
 	}
 
 
+	
 
 
 	@Override
@@ -118,21 +123,9 @@ public class Project_Details_DAO implements Project_Details_DAO_Interface{
 		try {
 			con=DButility.createConnection();
 			
-			
-//			 GId            | int         | NO   | PRI | NULL    | auto_increment |
-//			 | GMP_Id         | varchar(4)  | NO   | UNI | NULL    |                |
-//			 | adhar_Number   | varchar(12) | NO   | UNI | NULL    |                |
-//			 | name           | varchar(50) | NO   |     | NULL    |                |
-//			 | dob            | date        | YES  |     | NULL    |                |
-//			 | gender         | varchar(5)  | YES  |     | NULL    |                |
-//			 | panchayat_Name | varchar(50) | NO   | UNI | NULL    |                |
-//			 | district       | varchar(50) | YES  |     | NULL    |                |
-//			 | state          | varchar(50) | YES  |     | NULL    |                |
-//			 | project_Id     | int         | NO   | MUL | NULL    |
-//			 
-			
-			String query="Insert into gmps_details (GMP_Id, adhar_Number, name , dob , gender, panchayat_Name, district , state,project_Id )"
-					+ "values(?, ?, ?, ?, ?, ?, ?, ?,?)";
+
+			String query="Insert into gmps_details (GMP_Id, adhar_Number, name , dob , gender, panchayat_Name, district ,state )"
+					+ "values(?, ?, ?, ?, ?, ?, ?, ?)";
 			
 			
 			PreparedStatement ps=con.prepareStatement(query);
@@ -147,7 +140,7 @@ public class Project_Details_DAO implements Project_Details_DAO_Interface{
 			ps.setString(6, GD.getPanchayat_Name());
 			ps.setString(7, GD.getDistrict());
 			ps.setString(8, GD.getState());
-			ps.setInt(9, GD.getProject_id());
+			
 			
 			
 			
@@ -155,7 +148,7 @@ public class Project_Details_DAO implements Project_Details_DAO_Interface{
 			int m=ps.executeUpdate();
 			
 	        if(m>0) {
-	        	System.out.println(ConsoleColors.CYAN_BACKGROUND_BRIGHT+" Gram Panchayat Member added Successfully !");
+	        	System.out.println(ConsoleColors.CYAN_BACKGROUND_BRIGHT+" Gram Panchayat Member added Successfully !"+ConsoleColors.RESET);
 	        }
 			
 			
@@ -214,40 +207,32 @@ public class Project_Details_DAO implements Project_Details_DAO_Interface{
 		
 	}
 
+	
+	
 
 
-	
-	
-	
-	
-	
-	
 	@Override
-	public void allocate_project_to_GMPS(String gmp_id,String proj_Id) throws SomethingWentWrongException, NoRecordFoundException {
+	public void allocate_project_to_GMPS(int gmp_id,int proj_Id) throws SomethingWentWrongException, NoRecordFoundException {
+		
 		
 		Connection con=null;
 		try {
 			con=DButility.createConnection();
 			
-			String query ="SELECT g.name, g.adhar_Number, p.project_Name \r\n"
-					+ "FROM project_Details p\r\n"
-					+ "INNER JOIN gmps_details g ON p.PId = g.project_Id \r\n"
-					+ "WHERE g.GMP_Id = gmp_id AND p.project_Id =  proj_Id";
+			String query =" insert into gram_project values(?,?)";
 			
 			 PreparedStatement ps=con.prepareStatement(query);
-			  ps.setString(1, gmp_id);
-			  ps.setString(2, proj_Id);
+			 
+			  ps.setInt(1,gmp_id);
+			  ps.setInt(2,proj_Id);
+			 
 			  
-			  ResultSet rs=	ps.executeQuery();
-			     
-			     if(DButility.isResultSetEmpty(rs)) {
-			    	throw new NoRecordFoundException("There is no Data");
+			 int m =ps.executeUpdate();
+			     if(m>0) {
+			    	 
+			    	 System.out.println(ConsoleColors.CYAN_BACKGROUND_BRIGHT+" PROJECT ALLOCATION IS SUCCESSFULL !"+ConsoleColors.RESET);
 			     }
 			     
-			     while(rs.next()) {
-		    		 System.out.println("GMP NAME : "+rs.getString(1)+" GMP ADHAR NUMBER : "+rs.getString(2)+"  PROJECT NAME: "+rs.getInt(3));
-		    	 }
-				
 			
 			
 		} catch (ClassNotFoundException | SQLException e) {
@@ -262,22 +247,45 @@ public class Project_Details_DAO implements Project_Details_DAO_Interface{
 	
 	
 	
-
-
-//	WId            | int         | NO   | PRI | NULL    | auto_increment |
-//	| worker_Id      | varchar(4)  | NO   | UNI | NULL    |                |
-//	| adhar_Number   | varchar(12) | NO   | UNI | NULL    |                |
-//	| name           | varchar(50) | NO   |     | NULL    |                |
-//	| dob            | date        | YES  |     | NULL    |                |
-//	| gender         | varchar(5)  | YES  |     | NULL    |                |
-//	| panchayat_Name | varchar(50) | NO   | UNI | NULL    |                |
-//	| district       | varchar(50) | YES  |     | NULL    |                |
-//	| state          | varchar(50) | YES  |     | NULL    |                |
-//	| is_occupied    | int         | YES  |     | 0       |                |
-//	| is_delete      | int         | YES  |     | 0       |                |
-//	| project_Id     | int         | NO   | MUL | NULL    |
-
+	@Override
+	public void show_GMPS_with_Allocated_Projects() throws SomethingWentWrongException, NoRecordFoundException {
+		
+		Connection con=null;
+		try {
+			con=DButility.createConnection();
+			
+			String query ="SELECT g.name, g.adhar_Number, p.project_Name \r\n"
+					+ "FROM project_Details p\r\n"
+					+ "INNER JOIN gram_project gp on p.PId=gp.project_id \r\n"
+					+ "INNER JOIN gmps_details g on gp.gmp_id=g.GId";
+			
+			 PreparedStatement ps=con.prepareStatement(query);
+			
+			  
+			  ResultSet rs=	ps.executeQuery();
+			     
+			     if(DButility.isResultSetEmpty(rs)) {
+			    	throw new NoRecordFoundException("There is no Data");
+			     }
+			     
+			     while(rs.next()) {
+		    		 System.out.println("GMP NAME : "+rs.getString(1)+" GMP ADHAR NUMBER : "+rs.getString(2)+"  PROJECT NAME: "+rs.getString(3));
+		    	 }
+				
+			
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			throw new SomethingWentWrongException("Something went wrong while displyaing");
+		}finally {
+			DButility.closeConnection(con);
+		}
+	}
 	
+	
+	
+	
+
+
 
 	@Override
 	public void see_details_of_workers() throws NoRecordFoundException, SomethingWentWrongException {

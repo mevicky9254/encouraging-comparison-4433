@@ -38,10 +38,5 @@ public interface GMP_Details_Interface {
 	public void setState(String state);
 
 
-	public int getProject_id() ;
-
-	
-	public void setProject_id(int project_id);
-	
 
 }
