@@ -18,8 +18,9 @@ public class Project_Details_UI {
 			System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+"PRESS 3 TO ADD GRAM PANCHAYAT MEMBER"+ConsoleColors.RESET);
 			System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+"PRESS 4 TO  VIEW ALL THE GPMS"+ConsoleColors.RESET);
 			System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+"PRESS 5 TO ALLOCATE THE PROJECT TO GPMS"+ConsoleColors.RESET);
-			System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+"PRESS 6 TO SEE THE DETAILS OF ALL WORKERS"+ConsoleColors.RESET);
-			System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+"PRESS 7 TO LOG OUT"+ConsoleColors.RESET);
+			System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+"PRESS 6 TO SEE GMPS WITH ALLOCATED PROJECTS"+ConsoleColors.RESET);
+			System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+"PRESS 7 TO SEE THE DETAILS OF ALL WORKERS"+ConsoleColors.RESET);
+			System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT+"PRESS 8 TO LOG OUT"+ConsoleColors.RESET);
 			
 			ch=sc.nextInt();
 			
@@ -41,11 +42,14 @@ public class Project_Details_UI {
 	         
 			case 5: BDO_Functionalites_UI.allocate_project_to_GMPS(sc);
 	                break;
+	                
+			case 6: BDO_Functionalites_UI.show_GMPS_with_Allocated_Projects();
+                     break;     
 	         
-			case 6: BDO_Functionalites_UI.see_details_of_workers();
+			case 7: BDO_Functionalites_UI.see_details_of_workers();
 	                break;
 	         
-			case 7: BDO_Functionalites_UI.logout();
+			case 8: BDO_Functionalites_UI.logout();
 	                break;
 			
 			}
@@ -53,7 +57,7 @@ public class Project_Details_UI {
 			
 			
 			
-		}while(ch!=7);
+		}while(ch!=8);
 		
 		
 	}

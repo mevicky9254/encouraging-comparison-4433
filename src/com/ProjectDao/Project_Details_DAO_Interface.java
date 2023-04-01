@@ -18,7 +18,9 @@ public interface Project_Details_DAO_Interface {
 	
 	public void  view_List_of_GMP_Members() throws NoRecordFoundException,SomethingWentWrongException;
 	
-	public void allocate_project_to_GMPS(String GMP_id,String project_Id)throws  SomethingWentWrongException, NoRecordFoundException;
+	public void allocate_project_to_GMPS(int GMP_id,int project_Id)throws  SomethingWentWrongException, NoRecordFoundException;
+	
+	public void show_GMPS_with_Allocated_Projects() throws SomethingWentWrongException, NoRecordFoundException;
 	
 	public void see_details_of_workers()throws NoRecordFoundException,SomethingWentWrongException;
 		

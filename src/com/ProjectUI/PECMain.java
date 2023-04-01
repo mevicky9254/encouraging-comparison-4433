@@ -4,13 +4,17 @@ import java.util.Scanner;
 
 import com.ProjectDao.GMP_DAO;
 import com.ProjectDao.GMP_DAO_Interface;
+import com.ProjectDao.LoggedInGMP;
 import com.ProjectException.NoRecordFoundException;
 import com.ProjectException.SomethingWentWrongException;
 import com.projectCustom.ConsoleColors;
 
 public class PECMain {
 	
+	
+	
 	public static void BDOlogin(Scanner sc) {
+		
 		System.out.println("BDO LOGING In");
 		
 		System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+"Enter the Username"+ConsoleColors.RESET);
@@ -30,11 +34,14 @@ public class PECMain {
 		}
 		
 		
-		
 	}
 	
 	
+	
+	
+	
     public static void GPMlogin(Scanner sc)  {
+    	
     	
     	System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+"Enter the Username"+ConsoleColors.RESET);
 		String username=sc.next();
@@ -48,6 +55,11 @@ public class PECMain {
 		try {
 			try {
 				Gd.GMP_login(username, password);
+				
+				if(LoggedInGMP.LoggedInGMPId!=0) {
+					
+					GMP_Functionalities_UI.dispaly_Menu(sc);
+				}
 			} catch (NoRecordFoundException e) {
 				System.out.println(e);
 			}
@@ -65,6 +77,7 @@ public class PECMain {
     
 
 	public static void main(String[] args) {
+		
 		
 		Scanner sc=new Scanner(System.in);
 		
