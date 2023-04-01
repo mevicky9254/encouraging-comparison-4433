@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 import com.ProjectDao.GMP_DAO;
 import com.ProjectDao.GMP_DAO_Interface;
+import com.ProjectDao.Project_Details_DAO;
+import com.ProjectDao.Project_Details_DAO_Interface;
 import com.ProjectDto.Workers_DTO;
 import com.ProjectDto.Workers_Interface;
 import com.ProjectException.NoRecordFoundException;
@@ -100,15 +102,55 @@ public static void view_details_of_workers(Scanner sc) {
 
 public static void assign_project(Scanner sc) {
 	
+	 System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+"Enter the workrs ID "+ConsoleColors.RESET);
+		 int W_Id=sc.nextInt(); 
+		 
+		System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+"Enter the  Project ID"+ConsoleColors.RESET);
+	int project_Id=sc.nextInt();
+   
+	 GMP_DAO_Interface gd=new GMP_DAO();
+	
+	 
+	 try {
+		gd.assign_project(W_Id, project_Id);
+	} catch (SomethingWentWrongException  ex) {
+		
+		System.out.println(ConsoleColors.RED_BOLD_BRIGHT+ ex+ ConsoleColors.RESET);
+	}
+	
 }
+
+
 
 public static void view_name_days(Scanner sc) {
 	
+	 GMP_DAO_Interface gd=new GMP_DAO();
+	 
+	 try {
+		gd.view_name_days(sc);
+	} catch (SomethingWentWrongException | NoRecordFoundException ex) {
+		System.out.println(ConsoleColors.RED_BOLD_BRIGHT+ ex+ ConsoleColors.RESET);
+	}
+	
 }
+
+
+
 
 public static void view_name_wages(Scanner sc) {
 	
+	 GMP_DAO_Interface gd=new GMP_DAO();
+	 
+	 try {
+		gd.view_name_wages(sc);
+	} catch (SomethingWentWrongException | NoRecordFoundException ex) {
+		System.out.println(ConsoleColors.RED_BOLD_BRIGHT+ ex+ ConsoleColors.RESET);
+	}
+	
 }
+
+
+
 
 public static void delete_worker(Scanner sc) {
 	
