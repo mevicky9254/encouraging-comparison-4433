@@ -216,7 +216,7 @@ public class BDO_Functionalites_UI {
      
      public static void logout() {
     	 
-    	 System.out.println(ConsoleColors.GREEN_BACKGROUND_BRIGHT+"WELCOME ! Logeed Out SuccesFullY"+ConsoleColors.RESET);
+    	 System.out.println(ConsoleColors.GREEN_BACKGROUND_BRIGHT+"THANK YOU ADMIN, Logeed Out SuccesFullY"+ConsoleColors.RESET);
   		
   	}
      

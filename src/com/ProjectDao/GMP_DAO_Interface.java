@@ -24,7 +24,7 @@ public interface GMP_DAO_Interface {
  
     public  void view_name_wages(Scanner sc)throws SomethingWentWrongException,NoRecordFoundException;
 
-    public void delete_worker(Scanner sc) throws SomethingWentWrongException,NoRecordFoundException;
+    public void delete_worker(String worker_id) throws SomethingWentWrongException,NoRecordFoundException;
 
 	
 

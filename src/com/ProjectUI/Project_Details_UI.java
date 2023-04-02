@@ -66,11 +66,3 @@ public class Project_Details_UI {
 }
 
 
-//Create a project with details projectName, startDate, endDate, noOfWorkers, 
-//per_day_wages
-//View List of Projects
-//Add gram panchayat member with details aadhaar_number, name, dob, gender, 
-//panchayat name, district, state
-//View all the GPMs 
-//Allocate a project to a GPM.See the details of all workers. 
-//Logout

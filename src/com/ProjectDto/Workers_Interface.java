@@ -11,7 +11,6 @@ public interface Workers_Interface {
 
 	public String getAdhar();
 
-
 	public void setAdhar(String adhar);
 
 

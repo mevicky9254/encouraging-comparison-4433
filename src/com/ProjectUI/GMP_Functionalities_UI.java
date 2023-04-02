@@ -154,7 +154,24 @@ public static void view_name_wages(Scanner sc) {
 
 public static void delete_worker(Scanner sc) {
 	
+	System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+"Enter the  Workers's ID"+ConsoleColors.RESET);
+	 String worker_Id=sc.next(); 
+	 
+	 GMP_DAO_Interface gd=new GMP_DAO();
+	 
+	 try {
+		 
+		gd.delete_worker(worker_Id);
+		
+	} catch (SomethingWentWrongException | NoRecordFoundException ex) {
+		System.out.println(ConsoleColors.RED_BOLD_BRIGHT+ ex+ ConsoleColors.RESET);
+	}
+	 
+	
 }
+
+
+
 
 public static void logout_GMP(Scanner sc) {
 	
