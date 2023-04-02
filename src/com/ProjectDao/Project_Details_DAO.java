@@ -93,10 +93,27 @@ public class Project_Details_DAO implements Project_Details_DAO_Interface{
 		     }
 		     
 		     
-		     while(rs.next()) {
-	    		 System.out.println("PROJECT ID : "+rs.getString(1)+" PROJECT NAME : "+rs.getString(2)+"  NO. OF WORKERS : "+rs.getInt(3)+ "PER DAY WAGES : "+rs.getDouble(4));
-	    	 }
 		     
+		     System.out.println("------------------------------------------------------------------------");
+		     System.out.println(ConsoleColors.DARK_RED+"| PROJECT ID | PROJECT NAME                 | NO. OF WORKERS | PER DAY WAGES |"+ConsoleColors.RESET);
+		     System.out.println("-------------------------------------------------------------------------");
+
+		     while (rs.next()) {
+		         String projectId = rs.getString(1);
+		         String projectName = rs.getString(2);
+		         int numWorkers = rs.getInt(3);
+		         double perDayWages = rs.getDouble(4);
+
+		         System.out.printf("| %-10s| %-30s| %-15d| %-14.2f|\n", projectId, projectName, numWorkers, perDayWages);
+		     }
+
+		     System.out.println("--------------------------------------------------------------------------");
+
+		     
+//		     while(rs.next()) {
+//	    		 System.out.println("PROJECT ID : "+rs.getString(1)+" PROJECT NAME : "+rs.getString(2)+"  NO. OF WORKERS : "+rs.getInt(3)+ "PER DAY WAGES : "+rs.getDouble(4));
+//	    	 }
+//		     
 		       
 			
 		} catch (ClassNotFoundException | SQLException e) {
@@ -192,9 +209,25 @@ public class Project_Details_DAO implements Project_Details_DAO_Interface{
 		     }
 		     
 		     
-		     while(rs.next()) {
-	    		 System.out.println("GMP ID : "+rs.getString(1)+" GMP NAME : "+rs.getString(2)+"  Adhar Number : "+rs.getString(3)+ " Panchayat Name : "+rs.getString(4));
-	    	 }
+		     System.out.println("-----------------------------------------------------------------");
+		     System.out.println(ConsoleColors.DARK_RED+"| GMP ID    | GMP NAME         | ADHAR NUMBER | PANCHAYAT          |"+ConsoleColors.RESET);
+		     System.out.println("------------------------------------------------------------------");
+
+		     while (rs.next()) {
+		         String gmpId = rs.getString(1);
+		         String gmpName = rs.getString(2);
+		         String adharNumber = rs.getString(3);
+		         String panchayatName = rs.getString(4);
+
+		         System.out.printf("| %-9s| %-18s| %-12s| %-20s|\n", gmpId, gmpName, adharNumber, panchayatName);
+		     }
+
+		     System.out.println("---------------------------------------------------------------------");
+
+		     
+//		     while(rs.next()) {
+//	    		 System.out.println("GMP ID : "+rs.getString(1)+" GMP NAME : "+rs.getString(2)+"  Adhar Number : "+rs.getString(3)+ " Panchayat Name : "+rs.getString(4));
+//	    	 }
 			
 			
 			
@@ -268,9 +301,26 @@ public class Project_Details_DAO implements Project_Details_DAO_Interface{
 			    	throw new NoRecordFoundException("There is no Data");
 			     }
 			     
-			     while(rs.next()) {
-		    		 System.out.println("GMP NAME : "+rs.getString(1)+" GMP ADHAR NUMBER : "+rs.getString(2)+"  PROJECT NAME: "+rs.getString(3));
-		    	 }
+			     System.out.println("------------------------------------------------------------------------------");
+			     System.out.println(ConsoleColors.DARK_RED+"| GMP NAME            | GMP ADHAR NUMBER | PROJECT NAME                   |"+ConsoleColors.RESET);
+			     System.out.println("------------------------------------------------------------------------------ ");
+
+			     while (rs.next()) {
+			         String gmpName = rs.getString(1);
+			         String gmpAdharNumber = rs.getString(2);
+			         String projectName = rs.getString(3);
+
+			         System.out.printf("| %-20s| %-18s| %-30s|\n", gmpName, gmpAdharNumber, projectName);
+			     }
+
+			     System.out.println("---------------------------------------------------------------------------------");
+
+			     
+			     
+			     
+//			     while(rs.next()) {
+//		    		 System.out.println("GMP NAME : "+rs.getString(1)+" GMP ADHAR NUMBER : "+rs.getString(2)+"  PROJECT NAME: "+rs.getString(3));
+//		    	 }
 				
 			
 			
@@ -307,10 +357,34 @@ public class Project_Details_DAO implements Project_Details_DAO_Interface{
 			     }
 			     
 			     
-			     while(rs.next()) {
-		    		 System.out.println("WORKER ID : "+rs.getString(1)+" ADHAR NUMBER : "+rs.getString(2)+"  NAME : "+rs.getInt(3)+ "  DATE OF BIRTH : "+
-			     rs.getDate(4)+" GENDER  "+rs.getString(5)+" PANCHAYAT NAME "+rs.getString(6) +" DISTRICT "+ rs.getString(7) +" STATE "+ rs.getString(8));
-		    	 }
+			     
+			     System.out.println("--------------------------------------------------------------------------------------------------------------------------");
+			     System.out.println(ConsoleColors.DARK_RED+"| WORKER ID | ADHAR NUMBER    | NAME           | DATE OF BIRTH | GENDER | PANCHAYAT NAME | DISTRICT    |  STATE       |"+ConsoleColors.RESET);
+			     System.out.println("---------------------------------------------------------------------------------------------------------------------------");
+
+			     while (rs.next()) {
+			         String workerId = rs.getString(1);
+			         String adharNumber = rs.getString(2);
+			         String name = rs.getString(3);
+			         Date dob = rs.getDate(4);
+			         String gender = rs.getString(5);
+			         String panchayatName = rs.getString(6);
+			         String district = rs.getString(7);
+			         String state = rs.getString(8);
+
+			         System.out.printf("| %-10s| %-16s| %-15s| %-14s| %-7s| %-15s| %-13s| %-13s|\n", 
+			                             workerId, adharNumber, name, dob, gender, panchayatName, district, state);
+			     }
+
+			     System.out.println("---------------------------------------------------------------------------------------------------------------------------");
+
+			     
+//			     while(rs.next()) {
+//		    		 System.out.println("WORKER ID : "+rs.getString(1)+" ADHAR NUMBER : "+rs.getString(2)+"  NAME : "+rs.getInt(3)+ "  DATE OF BIRTH : "+
+//			     rs.getDate(4)+" GENDER  "+rs.getString(5)+" PANCHAYAT NAME "+rs.getString(6) +" DISTRICT "+ rs.getString(7) +" STATE "+ rs.getString(8));
+//		    	 }
+			     
+			     
 			
 		} catch (ClassNotFoundException | SQLException e) {
 			throw new SomethingWentWrongException("Something went wrong while displyaing");

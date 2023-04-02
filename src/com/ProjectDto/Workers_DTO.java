@@ -55,7 +55,7 @@ public class Workers_DTO implements Workers_Interface {
 	}
 
     @Override
-	public String getAdhar() {
+	public  String getAdhar() {
 		return adhar;
 	}
 

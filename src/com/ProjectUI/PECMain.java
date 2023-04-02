@@ -15,7 +15,7 @@ public class PECMain {
 	
 	public static void BDOlogin(Scanner sc) {
 		
-		System.out.println("BDO LOGING In");
+		
 		
 		System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+"Enter the Username"+ConsoleColors.RESET);
 		String username=sc.next();
@@ -25,7 +25,7 @@ public class PECMain {
 		
 		if(username.equals("admin") && password.equals("admin")) {
 			
-			System.out.println(ConsoleColors.GREEN_BACKGROUND_BRIGHT+"WELCOME ! Login is SuccesFull"+ConsoleColors.RESET);
+			System.out.println(ConsoleColors.GREEN_BACKGROUND_BRIGHT+"WELCOME ADMIN ! Login is SuccesFull"+ConsoleColors.RESET);
 			
 			Project_Details_UI.functionalities_of_BDO(sc);
 			
@@ -57,7 +57,7 @@ public class PECMain {
 				Gd.GMP_login(username, password);
 				
 				if(LoggedInGMP.LoggedInGMPId!=0) {
-					
+					System.out.println(ConsoleColors.GREEN_BACKGROUND_BRIGHT+"WELCOME GMP ! Login is SuccesFull"+ConsoleColors.RESET);
 					GMP_Functionalities_UI.dispaly_Menu(sc);
 				}
 			} catch (NoRecordFoundException e) {
@@ -92,7 +92,7 @@ public class PECMain {
 			
 			switch(ch) {
 			
-			case 0 :System.out.println("Exiting");
+			case 0 :System.out.println(ConsoleColors.BANANA_YELLOW_BACKGROUND+"APPLICATION IS CLOSED !!"+ConsoleColors.RESET);
 			        break;
 			
 			case 1: BDOlogin(sc);
