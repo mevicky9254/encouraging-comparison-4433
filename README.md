@@ -5,14 +5,47 @@
 <p>Aims of providing at least 100 days of guaranteed wage employment to every rural household whose adult members volunteer to do unskilled manual work. The scheme is meant to provide a safety net to the rural poor and to create sustainable rural livelihoods by creating assets and infrastructure in rural areas. People's Employment Centre is considered to be one of the largest public works programs in the world, and has played a significant role in reducing poverty and improving the lives of rural communities in India.</p>
 
 
-<h3>USRRS</h3
+<h3>USERS</h3
 <ul>
-<li>BDO</li>
-<li>GRAM PANCHAYAT MEMBER (GMPs)</li>
+ <li>BDO</li>
+ <li>GRAM PANCHAYAT MEMBER (GMPs)</li>
 </ul>
+
+<h3>FUNCTIONALITIES OF BDO</h3
+ <ul>
+  <li>BDO</li>
+  <li>Create a Project</li>
+  <li>View List Of Projects</li>
+  <li>Add Gram Panchayat Members</li>
+  <li>View List of Gram Panchayat Members</li>
+  <li>Allocation of Projects to Gram panchayat Members</li>
+  <li>View List of Gram panchayat Members with Allocated Projects</li>
+  <li>Allocation of Projects to Gram panchayat Members</li>
+  <li>View List Of All Workers</li>
+  <li>Log Out</li>
+</ul> 
+
+
+ 
+ <h3>FUNCTIONALITIES OF GRAM PANCHAYAT MEMBER (GMPs) </h3
+ <ul>
+  <li>To Add Workers</li>
+  <li>View The Details Of Workers</li>
+  <li>View The Details of Workers Using Adhar Number</li>
+  <li>Allocation of projects to the Workers</li>
+  <li>View Worker and Number of days Worker worked</li>
+  <li>View Worker Name and his total Wages</li>
+  <li>Delete a Worker</li>
+  <li>Log Out</li>
+</ul> 
   
-  
+
+
+
 
   <h2>SCHEMA FOR PEC</h2>
 
   <img src="https://i.postimg.cc/CKQzK5kD/Screenshot-167.png" alt="">
+  
+  
+  
