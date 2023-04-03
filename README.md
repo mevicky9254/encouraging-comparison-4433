@@ -50,11 +50,11 @@
   
    <h1>[Getting Started]</h1>
     <h3>Execution</h3>
-    <p>If you want to run our project in your local machine</p>
+    <p>If you want to run the project in your local machine</p>
     <p>Follow the given steps:</p>
     <ul>
         <li>Clone our respository <a href="https://github.com/mevicky9254/encouraging-comparison-4433.git">https://github.com/mevicky9254/encouraging-comparison-4433.git</a></li>
-        <li>Open our code in VS code </li>
+        <li>Open the code in VS code or STS </li>
  <li>Congrats !  you have successfully sarted the application.</li>
     </ul>
         <h1>Built with</h1>
@@ -64,9 +64,10 @@
         <li>SQL</li>
         
     </ul>
-        <h1>Creators</h1>
-    <ul>
     
+        <h1>Creators</h1>
+        
+      <ul>
       <li><a href="https://github.com/mevicky9254">@Vikki Kumar</a></li>
-      
+      </ul> 
   
