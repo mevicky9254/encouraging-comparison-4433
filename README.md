@@ -13,7 +13,7 @@
 
 <h3>FUNCTIONALITIES OF BDO</h3
  <ul>
-  <li>BDO</li>
+  
   <li>Create a Project</li>
   <li>View List Of Projects</li>
   <li>Add Gram Panchayat Members</li>
