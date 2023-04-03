@@ -48,4 +48,26 @@
   <img src="https://i.postimg.cc/CKQzK5kD/Screenshot-167.png" alt="">
   
   
+   <h1>[Getting Started]</h1>
+    <h3>Execution</h3>
+    <p>If you want to run our project in your local machine</p>
+    <p>Follow the given steps:</p>
+    <ul>
+        <li>Clone our respository <a href="">https://github.com/Abhinav-Mourya/puzzled-apparatus-1796</a></li>
+        <li>Open our code in VS code </li>
+ <li>Congrats !  you have successfully sarted the application.</li>
+    </ul>
+        <h1>Built with</h1>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Bootstrap</li>
+    </ul>
+        <h1>Creators</h1>
+    <ul>
+     <li><a href="https://github.com/sonu25122000">@Sonu Kumar</a></li>
+      <li><a href="https://github.com/mevicky9254">@Vikki Kumar</a></li>
+       <li><a href="https://github.com/Abhinav-Mourya">@Abhinav Mourya</a></li>
+       <li><a href="https://github.com/nadeemm763">Nadeem</a></li> 
   
