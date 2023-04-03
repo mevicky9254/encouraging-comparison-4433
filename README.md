@@ -65,9 +65,5 @@
         
     </ul>
     
-        <h1>Creators</h1>
-        
-      <ul>
-      <li><a href="https://github.com/mevicky9254">@Vikki Kumar</a></li>
-      </ul> 
+       
   
