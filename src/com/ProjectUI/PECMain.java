@@ -17,6 +17,8 @@ public class PECMain {
 		
 		
 		
+		
+		
 		System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+"Enter the Username"+ConsoleColors.RESET);
 		String username=sc.next();
 		
@@ -37,7 +39,7 @@ public class PECMain {
 	}
 	
 	
-	
+
 	
 	
     public static void GPMlogin(Scanner sc)  {
@@ -70,7 +72,7 @@ public class PECMain {
 	}
 	
     
-    
+                         
     
     
     
@@ -78,8 +80,19 @@ public class PECMain {
 
 	public static void main(String[] args) {
 		
-		
+	
 		Scanner sc=new Scanner(System.in);
+		System.out.println();
+		System.out.println();
+		System.out.println(ConsoleColors.GREEN_BACKGROUND_BRIGHT+"                                             "+ConsoleColors.RESET);
+		System.out.println(ConsoleColors.GREEN_BACKGROUND_BRIGHT+"                WELCOME TO THE               "+ConsoleColors.RESET);
+		System.out.println(ConsoleColors.GREEN_BACKGROUND_BRIGHT+"                                             "+ConsoleColors.RESET);
+		System.out.println(ConsoleColors.GREEN_BACKGROUND_BRIGHT+"          PEOPLE'S EMPLOYEMENT CENTRE        "+ConsoleColors.RESET);
+		System.out.println(ConsoleColors.GREEN_BACKGROUND_BRIGHT+"                                             "+ConsoleColors.RESET);
+		System.out.println();
+		
+		System.out.println("================================================");
+		System.out.println();
 		
 		int ch=0;
 		
