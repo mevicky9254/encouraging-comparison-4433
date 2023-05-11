@@ -13,9 +13,9 @@ public class PECMain {
 	
 	
 	
+	
+	// Method to login as BDO
 	public static void BDOlogin(Scanner sc) {
-		
-		
 		
 		
 		
@@ -25,7 +25,7 @@ public class PECMain {
 		System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+"Enter the password"+ConsoleColors.RESET);
 		String password=sc.next();
 		
-		if(username.equals("admin") && password.equals("admin")) {
+		if(username.equalsIgnoreCase("admin") && password.equalsIgnoreCase("admin")) {
 			
 			System.out.println(ConsoleColors.GREEN_BACKGROUND_BRIGHT+"WELCOME ADMIN ! Login is SuccesFull"+ConsoleColors.RESET);
 			
@@ -42,6 +42,7 @@ public class PECMain {
 
 	
 	
+	//Method to login as GramPanchayat Member
     public static void GPMlogin(Scanner sc)  {
     	
     	
@@ -77,7 +78,7 @@ public class PECMain {
     
     
     
-
+     //main method
 	public static void main(String[] args) {
 		
 	

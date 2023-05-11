@@ -7,6 +7,8 @@ import com.projectCustom.ConsoleColors;
 public class Project_Details_UI {
 	
 	
+	
+	//List of functionalities of BDO
 	public static void functionalities_of_BDO(Scanner sc) {
 		
 		int ch=0;
