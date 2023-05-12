@@ -79,6 +79,7 @@ public class GMP_DAO implements GMP_DAO_Interface {
 	@Override
 	public void add_workers(Workers_Interface wi) throws SomethingWentWrongException {
 		
+		//Establishing the connection
 		Connection con=null;
 		
 		try {
