@@ -13,8 +13,11 @@ public class PECMain {
 	
 	
 	
-	
-	// Method to login as BDO
+	 /**
+     * Performs the login process for the BDO (Block Development Officer).
+     *
+     * @param sc The Scanner object for user input.
+     */
 	public static void BDOlogin(Scanner sc) {
 		
 		
@@ -44,7 +47,12 @@ public class PECMain {
 
 	
 	
-	//Method to login as GramPanchayat Member
+
+    /**
+     * Performs the login process for the Gram Panchayat Member.
+     *
+     * @param sc The Scanner object for user input.
+     */
     public static void GPMlogin(Scanner sc)  {
     	
     	
@@ -63,6 +71,8 @@ public class PECMain {
 				
 				Gd.GMP_login(username, password);
 				
+			    // The condition checks if the LoggedInGMPId is not equal to 0, indicating a successful login.
+			    // If the condition is true, it means a Gram Panchayat Member (GMP) has been logged in.
 				if(LoggedInGMP.LoggedInGMPId!=0) {
 					System.out.println(ConsoleColors.GREEN_BACKGROUND_BRIGHT+"WELCOME GMP ! Login is SuccesFull"+ConsoleColors.RESET);
 					GMP_Functionalities_UI.dispaly_Menu(sc);
