@@ -6,18 +6,7 @@ public class GMP_Details_DTO implements GMP_Details_Interface  {
 
 	
 	
-//	 GId            | int         | NO   | PRI | NULL    | auto_increment |
-//	 | GMP_Id         | varchar(4)  | NO   | UNI | NULL    |                |
-//	 | adhar_Number   | varchar(12) | NO   | UNI | NULL    |                |
-//	 | name           | varchar(50) | NO   |     | NULL    |                |
-//	 | dob            | date        | YES  |     | NULL    |                |
-//	 | gender         | varchar(5)  | YES  |     | NULL    |                |
-//	 | panchayat_Name | varchar(50) | NO   | UNI | NULL    |                |
-//	 | district       | varchar(50) | YES  |     | NULL    |                |
-//	 | state          | varchar(50) | YES  |     | NULL    |                |
-//	 | project_Id     | int         | NO   | MUL | NULL    |
-//	 
-	
+
 	
 	private  String GMP_Id;
 	private String adahr_Number;
