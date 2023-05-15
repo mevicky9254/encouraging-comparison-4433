@@ -17,6 +17,9 @@ import com.projectCustom.ConsoleColors;
 public class BDO_Functionalites_UI {
 
 	
+	
+	
+	// Method to create projects
 	public static void createProject(Scanner sc) {
 		
 		System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+"Enter the  Project ID"+ConsoleColors.RESET);
@@ -55,6 +58,13 @@ public class BDO_Functionalites_UI {
 	
 	
 	
+	
+	
+	
+	
+	
+	 // Method to see list of projects
+	
      public static void view_List_of_Projects() {
     	 
     	 Project_Details_DAO_Interface pdd=new Project_Details_DAO();
@@ -75,27 +85,19 @@ public class BDO_Functionalites_UI {
      
      
      
+     
+     
+     // Method to add Gram Panchayat Members
+     
      public static void add_GMPS(Scanner sc) {
     	 
-    	 
-//    	 GId            | int         | NO   | PRI | NULL    | auto_increment |
-//    	 | GMP_Id         | varchar(4)  | NO   | UNI | NULL    |                |
-//    	 | adhar_Number   | varchar(12) | NO   | UNI | NULL    |                |
-//    	 | name           | varchar(50) | NO   |     | NULL    |                |
-//    	 | dob            | date        | YES  |     | NULL    |                |
-//    	 | gender         | varchar(5)  | YES  |     | NULL    |                |
-//    	 | panchayat_Name | varchar(50) | NO   | UNI | NULL    |                |
-//    	 | district       | varchar(50) | YES  |     | NULL    |                |
-//    	 | state          | varchar(50) | YES  |     | NULL    |                |
-//    	 | project_Id     | int         | NO   | MUL | NULL    |
-//    	 
     	 
     	 System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+"Enter the  Gram Panchayat Member's ID"+ConsoleColors.RESET);
  		 String GMP_Id=sc.next(); 
     	 
  		 System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+"Enter the Adhar card Number "+ConsoleColors.RESET);
  		 long adhar=sc.nextLong(); 
- 		 String adharCard=""+adhar;
+ 		 String adharCard=Long.toString(adhar);
  		  sc.nextLine();
  		 
  		 System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+"Enter the  Gram Panchayat Member's Name"+ConsoleColors.RESET);
@@ -118,6 +120,17 @@ public class BDO_Functionalites_UI {
  		 String state =sc.next(); 
  		 
  		
+ 		 // Validate the length of adhar
+	 	   if (adharCard.length() != 12) {
+	 	      System.out.println("Invalid Aadhaar card number. It should be 12 digits long.");
+	 	    return;
+	 	    }
+
+	 	   // Validate numeric characters of adhar
+	 	 if (!adharCard.matches("[0-9]+")) {
+	 	    System.out.println("Invalid Aadhaar card number. It should only contain numeric digits.");
+	 	    return;
+	 	 }
  		
  		 
  		 GMP_Details_Interface gd=new GMP_Details_DTO(GMP_Id, adharCard,name ,dob,gender,panchayat_Name,district,state);
@@ -136,6 +149,11 @@ public class BDO_Functionalites_UI {
      
      
      
+     
+     
+     
+     
+     // Method to see see list of Gram Panchayat Members
      
      public static void view_list_of_GMPS(Scanner sc) {
     	 
@@ -158,6 +176,8 @@ public class BDO_Functionalites_UI {
      
      
      
+     
+   // Method to allocate projects to Gram Panchayat Members 
      
      public static void allocate_project_to_GMPS(Scanner sc) {
     	 
@@ -183,6 +203,11 @@ public class BDO_Functionalites_UI {
      
      
      
+     
+     
+     
+    // Method to see Gram Panchayat Members with allocated projects
+     
      public static void show_GMPS_with_Allocated_Projects() {
     	 Project_Details_DAO_Interface pdd=new Project_Details_DAO(); 
     	 try {
@@ -193,6 +218,12 @@ public class BDO_Functionalites_UI {
      }
      
      
+     
+     
+     
+     
+     
+     // Method to see details of workers
      
      public static void see_details_of_workers() {
     	 
@@ -213,6 +244,8 @@ public class BDO_Functionalites_UI {
      
      
      
+     
+     // Method to logout as admin
      
      public static void logout() {
     	 

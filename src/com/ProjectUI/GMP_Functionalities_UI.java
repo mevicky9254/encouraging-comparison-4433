@@ -12,9 +12,17 @@ import com.ProjectDto.Workers_Interface;
 import com.ProjectException.NoRecordFoundException;
 import com.ProjectException.SomethingWentWrongException;
 import com.projectCustom.ConsoleColors;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
+//Functionalities of the Gram Panchayat Member
 public class GMP_Functionalities_UI {
 	
+	
+	
+	
+	
+	//Method to add workers
 	public static void add_workers(Scanner sc) {
 		
 		 System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+"Enter the  Workers's ID"+ConsoleColors.RESET);
@@ -22,7 +30,7 @@ public class GMP_Functionalities_UI {
     	 
  		 System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+"Enter the Adhar card Number "+ConsoleColors.RESET);
  		 long adhar=sc.nextLong(); 
- 		 String adharCard=""+adhar;
+ 		 String adharCard = String.valueOf(adhar);
  		  sc.nextLine();
  		 
  		 System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+"Enter the  Worker's Name"+ConsoleColors.RESET);
@@ -45,6 +53,21 @@ public class GMP_Functionalities_UI {
  		 String state =sc.next(); 
  		 
  		 
+ 		 
+ 		  // Validate the length of adhar
+ 	 	   if (adharCard.length() != 12) {
+ 	 	      System.out.println("Invalid Aadhaar card number. It should be 12 digits long.");
+ 	 	    return;
+ 	 	    }
+
+ 	 	   // Validate numeric characters of adhar
+ 	 	 if (!adharCard.matches("[0-9]+")) {
+ 	 	    System.out.println("Invalid Aadhaar card number. It should only contain numeric digits.");
+ 	 	    return;
+ 	 	 }
+ 		 
+ 		 
+ 		 
  		Workers_Interface wi=new Workers_DTO(worker_Id, adharCard, name,dob,gender,panchayat_Name,district, state);
  		 
  		GMP_DAO_Interface gd=new GMP_DAO();
@@ -62,53 +85,89 @@ public class GMP_Functionalities_UI {
 	
 	
 	
-public static void view_details_of_workers(Scanner sc) {
 	
-	GMP_DAO_Interface gd=new GMP_DAO();
-	try {
+	
+	// Method to view details of workers
+    public static void view_details_of_workers(Scanner sc) {
+	
+	     GMP_DAO_Interface gd=new GMP_DAO();
+	  try {
 		gd.view_details_of_workers();
-	} catch (SomethingWentWrongException | NoRecordFoundException ex) {
+	 } catch (SomethingWentWrongException | NoRecordFoundException ex) {
 		System.out.println(ConsoleColors.RED_BOLD_BRIGHT+ ex+ ConsoleColors.RESET);
-	}
+	 }
 		
-	}
+	 }
 
 
 
+    
+    
 
 
+   // Method to view details of workers using adhar
+    
+    public static void view_worker_using_adhar(Scanner sc) {
+        System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT + "Enter the Aadhaar Card Number: " + ConsoleColors.RESET);
+        long adhar = sc.nextLong();
+        String adharCard = Long.toString(adhar);
 
-   public static void view_worker_using_adhar(Scanner sc) {
-	   
-	   System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+"Enter the Adhar card Number "+ConsoleColors.RESET);
-		 long adhar=sc.nextLong(); 
-		 String adharCard=""+adhar;
-		 
-		 GMP_DAO_Interface gd=new GMP_DAO();
-		 
-		 try {
-			gd.view_worker_using_adhar(adharCard);
-		} catch (SomethingWentWrongException | NoRecordFoundException ex) {
-			System.out.println(ConsoleColors.RED_BOLD_BRIGHT+ ex+ ConsoleColors.RESET);
-		}
-		 
+        // Validate Aadhaar card number
+        if (!isValidAadhaar(adharCard)) {
+            System.out.println(ConsoleColors.RED_BOLD_BRIGHT + "Invalid Aadhaar Card Number." + ConsoleColors.RESET);
+            return;
+        }
+
+        // Hash Aadhaar card number using SHA-256 algorithm
+        String hashedAdhar = hashSHA256(adharCard);
+
+        GMP_DAO_Interface gd = new GMP_DAO();
+
+        try {
+            gd.view_worker_using_adhar(hashedAdhar);
+        } catch (SomethingWentWrongException | NoRecordFoundException ex) {
+            System.out.println(ConsoleColors.RED_BOLD_BRIGHT + ex + ConsoleColors.RESET);
+        }
+    }
+
+    // Validate Aadhaar card number (assumed 12-digit number)
+    private static boolean isValidAadhaar(String adharCard) {
+        return adharCard.matches("^\\d{12}$");
+    }
+
+    // Hashing using SHA-256 algorithm
+    private static String hashSHA256(String input) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] hashedBytes = md.digest(input.getBytes());
+
+            StringBuilder sb = new StringBuilder();
+            for (byte b : hashedBytes) {
+                sb.append(String.format("%02x", b));
+            }
+            return sb.toString();
+        } catch (NoSuchAlgorithmException e) {
+            // Handle hashing algorithm exception
+            e.printStackTrace();
+            return null;
+        }
+    }
+   
+   
+    
+   
+    
+   
+   // Method to assign projects to workers
+   public static void assign_project(Scanner sc) {
 	
-   }
-   
-   
-   
-   
-   
-
-public static void assign_project(Scanner sc) {
-	
-	 System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+"Enter the workrs ID "+ConsoleColors.RESET);
-		 int W_Id=sc.nextInt(); 
+	  System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+"Enter the workrs ID "+ConsoleColors.RESET);
+	  int W_Id=sc.nextInt(); 
 		 
-		System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+"Enter the  Project ID"+ConsoleColors.RESET);
-	int project_Id=sc.nextInt();
+	  System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+"Enter the  Project ID"+ConsoleColors.RESET);
+	  int project_Id=sc.nextInt();
    
-	 GMP_DAO_Interface gd=new GMP_DAO();
+	  GMP_DAO_Interface gd=new GMP_DAO();
 	
 	 
 	 try {
@@ -118,11 +177,13 @@ public static void assign_project(Scanner sc) {
 		System.out.println(ConsoleColors.RED_BOLD_BRIGHT+ ex+ ConsoleColors.RESET);
 	}
 	
-}
+ }
 
+   
+   
 
-
-public static void view_name_days(Scanner sc) {
+   // Method to view name and duration of projects
+   public static void view_name_days(Scanner sc) {
 	
 	 GMP_DAO_Interface gd=new GMP_DAO();
 	 
@@ -132,12 +193,12 @@ public static void view_name_days(Scanner sc) {
 		System.out.println(ConsoleColors.RED_BOLD_BRIGHT+ ex+ ConsoleColors.RESET);
 	}
 	
-}
+   }
 
 
 
-
-public static void view_name_wages(Scanner sc) {
+  // Method to view name of worker and total wages
+  public static void view_name_wages(Scanner sc) {
 	
 	 GMP_DAO_Interface gd=new GMP_DAO();
 	 
@@ -147,12 +208,14 @@ public static void view_name_wages(Scanner sc) {
 		System.out.println(ConsoleColors.RED_BOLD_BRIGHT+ ex+ ConsoleColors.RESET);
 	}
 	
-}
+ }
+
+  
+  
 
 
-
-
-public static void delete_worker(Scanner sc) {
+   //Method to delete worker based on worker id
+   public static void delete_worker(Scanner sc) {
 	
 	System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+"Enter the  Workers's ID"+ConsoleColors.RESET);
 	 String worker_Id=sc.next(); 
@@ -168,20 +231,20 @@ public static void delete_worker(Scanner sc) {
 	}
 	 
 	
-}
+  }
 
 
+   
+   
 
-
-public static void logout_GMP(Scanner sc) {
+  // Method to log out
+   public static void logout_GMP(Scanner sc) {
 	
 	GMP_DAO_Interface gd=new GMP_DAO();
 	gd.logout();
 	
-}
+   }
 	
-
-
 
 
 
