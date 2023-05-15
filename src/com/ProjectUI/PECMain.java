@@ -25,6 +25,8 @@ public class PECMain {
 		System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+"Enter the password"+ConsoleColors.RESET);
 		String password=sc.next();
 		
+		
+		//Validating user name and password
 		if(username.equalsIgnoreCase("admin") && password.equalsIgnoreCase("admin")) {
 			
 			System.out.println(ConsoleColors.GREEN_BACKGROUND_BRIGHT+"WELCOME ADMIN ! Login is SuccesFull"+ConsoleColors.RESET);
@@ -57,6 +59,8 @@ public class PECMain {
 		
 		try {
 			try {
+				
+				
 				Gd.GMP_login(username, password);
 				
 				if(LoggedInGMP.LoggedInGMPId!=0) {
